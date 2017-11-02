@@ -1,0 +1,39 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <link rel="stylesheet" href="https://openlayers.org/en/v4.4.2/css/ol.css" type="text/css">
+    <style>
+      .map {
+        height: 400px;
+        width: 600px;
+      }
+    </style>
+    <script src="https://openlayers.org/en/v4.4.2/build/ol.js" type="text/javascript"></script>
+    <title>Mapping: Rob Canning</title>
+  </head>
+  <body>
+    <h2>Mapping Example 01: RC</h2>
+    <div id="map" class="map"></div>
+    <script type="text/javascript">
+      var coventry = [-1.51, 52.40]; // longitude first, then latitude
+      // since we are using OSM, we have to transform the coordinates...
+      var coventryWebMercator = ol.proj.fromLonLat(coventry);
+      var map = new ol.Map({
+        layers: [
+          new ol.layer.Tile({
+            source: new ol.source.OSM()
+          })
+        ],
+        target: 'map',
+        view: new ol.View({
+          center: coventryWebMercator,
+          zoom: 9
+        })
+      });
+
+
+
+
+    </script>
+  </body>
+</html>
